@@ -25,7 +25,7 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* ...
+* Config/application.yml used to store secret keys
 
 
 Please feel free to use a different markup language if you do not plan to run

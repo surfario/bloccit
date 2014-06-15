@@ -35,6 +35,8 @@ gem 'devise'
 
 gem 'faker'
 
+gem 'pundit'
+
 gem 'figaro'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks

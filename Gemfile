@@ -39,6 +39,8 @@ gem 'pundit'
 
 gem 'figaro'
 
+gem 'redcarpet'
+
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 

@@ -17,7 +17,8 @@ class PostsController < ApplicationController
 
     authorize @post
     if @post.save
-         redirect_to [@topic, @post], notice: "Post was saved with great success."   
+         redirect_to [@topic, @post], notice: "Post was saved with great success."  
+  # same as redirect_to topic_post_url(@topic, @post) 
     else
       flash[:error] = "There was an error saving the post. Please try again."
       render :new

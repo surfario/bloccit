@@ -16,7 +16,12 @@
   <%= form_group_tag(post.errors[:body]) do %>
     <%= f.label :body %>
     <%= f.text_area :body, rows: 8, class: 'form-control', placeholder: "Enter post body" %>
-  <% end %>          
+  <% end %>
+  <div class="form-group">
+    <% if post.image.present? %>
+      <%= image_tag post.image.url %>
+    <% end %>
+  </div>
   <%= form_group_tag(post.errors[:image]) do %>
     <%= f.label :image %>
     <%= f.file_field :image %>

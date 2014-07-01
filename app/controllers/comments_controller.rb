@@ -1,4 +1,7 @@
 class CommentsController < ApplicationController
+
+  before_filter :authenticate_user!
+  
   # def edit
   #   @topic = Topic.find(params[:topic_id])
   #   @post = Post.find(params[:post_id])
@@ -16,7 +19,7 @@ class CommentsController < ApplicationController
     @new_comment = Comment.new
 
 
-    authorize @comment
+    # authorize @comment
 
     if @comment.save
       flash[:notice] = "Comment was saved successfully."

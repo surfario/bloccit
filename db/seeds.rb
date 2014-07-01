@@ -1,5 +1,9 @@
 require 'faker'
 
+User.destroy_all
+Post.destroy_all
+Comment.destroy_all
+Topic.destroy_all
 # create users
 5.times do
   user = User.new(

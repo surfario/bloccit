@@ -5,13 +5,11 @@ class PostsController < ApplicationController
   def show
     
     @post = @topic.posts.find(params[:id])
-    
     @comments = @post.comments 
   # generating new comment instance within specific post  
   end
 
   def new
-    @topic = Topic.find(params[:topic_id])
     @post = Post.new
     authorize @post
   end

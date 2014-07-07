@@ -27,12 +27,15 @@ topics = Topic.all
 
 # create posts
 50.times do 
-  Post.create(
+  post = Post.create(
     user: users.sample,
     topic: topics.sample,
     title: Faker::Lorem.sentence,
     body:  Faker::Lorem.paragraph
   )  
+  # set the create_at to a time within past year
+  post.update_attribute(:created_at, rand(10.minutes .. 1.year).ago)
+  post.update_rank
 end
 
 posts = Post.all

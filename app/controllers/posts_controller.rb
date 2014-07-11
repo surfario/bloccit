@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   before_filter :get_topic
 
   def show
-    
+    authorize @topic
     @post = @topic.posts.find(params[:id])
     @comments = @post.comments 
   # generating new comment instance within specific post  

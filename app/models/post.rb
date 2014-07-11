@@ -26,6 +26,7 @@ class Post < ActiveRecord::Base
   end    
 
   default_scope { order('rank DESC') }
+  scope :visible_to, ->(user) { user ? all : joins(:topic).where('topics.public' => true) }
 
   after_create :create_vote
 

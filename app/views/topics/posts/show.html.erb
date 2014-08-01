@@ -31,10 +31,14 @@
 <hr/>
 <div class="row">
   <div class="col-md-8">
-    <%= render partial: 'comments/comment', collection: @comments %>
+    <div class='js-comments'>  
+      <%= render partial: 'comments/comment', collection: @comments %>
+    </div>
   </div>
   <div class="col-md-4">
-   <%= render partial: 'posts/comment_form', locals: { topic: @topic, post: @post, comment: @post.comments.build } %>
+    <div class='new-comment'>
+      <%= render partial: 'posts/comment_form', locals: { topic: @topic, post: @post, comment: @post.comments.build } %>
+    </div>
  </div>
 </div>    
 

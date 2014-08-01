@@ -27,7 +27,9 @@ class CommentsController < ApplicationController
     else
       flash[:error] = "Error creating comment.  Please try again."
     end
-    redirect_to [@topic, @post]
+    respond_with(@comment) do |format|
+      format.html { redirect_to [@post.topic, @post] }
+    end  
   end 
 
   def destroy

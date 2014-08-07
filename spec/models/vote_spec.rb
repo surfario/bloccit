@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe Vote do 
   describe "validations" do
@@ -14,21 +14,23 @@ describe Vote do
         expect(bad_v.valid?).to eq(false)
       end
     end
-  end
   
-  describe 'after_save' do
-    it "calls 'Post#update_rank' after save" do
-      post = post_without_user
-      vote = Vote.new(value: 1, post: post)
-      expect(post).to receive(:update_rank)
-      vote.save
-    end
-  end          
-end
+  
+    describe 'after_save' do
+      it "calls 'Post#update_rank' after save" do
+        post = post_without_user
+        vote = Vote.new(value: 1, post: post)
+        expect(post).to receive(:update_rank)
+        vote.save
+      end
+    end          
+  end
 
 def post_without_user
-  post = Post.new(title: 'Post title', body: 'Post bodies must be pretty long.')
+  post = Post.new(title: 'Post title', body: 'Post bodies must be pretty long.', user_id: 1, topic_id: 2)
   expect(post).to receive(:create_vote)
-  post.save
+  post.save!
   post
 end 
+
+end

@@ -5,7 +5,7 @@ describe VotesController do
   include TestFactories
   include Devise::TestHelpers
 
-  describe '#up_vote' do
+  describe '#create' do
     it "adds an up-vote to the post" do
       request.env["HTTP_REFERER"] = '/'
       @user = authenticated_user
@@ -13,7 +13,7 @@ describe VotesController do
       sign_in @user
 
       expect {
-        post( :up_vote, post_id: @post.id ) 
+        post( :create, post_id: @post.id, topic_id: @post.topic_id) 
       }.to change{ @post.up_votes }.by 1
     end  
   end

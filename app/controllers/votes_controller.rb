@@ -1,12 +1,12 @@
 class VotesController < ApplicationController
   before_filter :setup
 
-  def up_vote
+  def create
     update_vote(1)
     redirect_to :back
   end
 
-  def down_vote
+  def destroy
     update_vote(-1)
     redirect_to :back
   end  
